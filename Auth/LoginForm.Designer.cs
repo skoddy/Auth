@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.createUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonLogin
@@ -99,11 +100,22 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Passwort";
             // 
+            // createUser
+            // 
+            this.createUser.Location = new System.Drawing.Point(42, 252);
+            this.createUser.Name = "createUser";
+            this.createUser.Size = new System.Drawing.Size(182, 23);
+            this.createUser.TabIndex = 7;
+            this.createUser.Text = "Neues Konto";
+            this.createUser.UseVisualStyleBackColor = true;
+            this.createUser.Click += new System.EventHandler(this.createUser_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 254);
+            this.ClientSize = new System.Drawing.Size(269, 327);
+            this.Controls.Add(this.createUser);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -128,6 +140,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button createUser;
     }
 }
 

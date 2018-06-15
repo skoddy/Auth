@@ -37,5 +37,11 @@ namespace Auth
         {
 
         }
+
+        private void createUser_Click(object sender, EventArgs e)
+        {
+            User user = new User(userName.Text, userPassword.Text);
+            user.create();
+        }
     }
 }
