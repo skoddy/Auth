@@ -21,10 +21,15 @@ namespace Auth
         {
             CAuth user = new CAuth(userName.Text, userPassword.Text);
             user.auth();
+
             if (user.Authed)
             {
                 Main main = new Main();
                 main.Show();
+            } 
+            else
+            {
+                MessageBox.Show("Benutzer nicht gefunden", "Fehler", MessageBoxButtons.OK);
             }
         }
 

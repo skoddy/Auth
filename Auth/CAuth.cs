@@ -31,11 +31,13 @@ namespace Auth
             List<CAuth> list = new List<CAuth>();
             FileStream fs = new FileStream(file, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
+
             while (sr.Peek() != -1)
             {
                 string[] userData = sr.ReadLine().Split(';');
                 list.Add(new CAuth(userData[0], userData[1]));
             }
+
             sr.Close();
             fs.Close();
             return list;
@@ -43,6 +45,7 @@ namespace Auth
         public void auth()
         {
             List<CAuth> UserData = loadPasswordFile("userdata.txt");
+
             foreach( CAuth user in UserData)
             {
                 if (user.userName == this.userName && user.userPassword == cryptPassword(this.userPassword))
@@ -55,11 +58,14 @@ namespace Auth
         {
             byte xorConstant = 0x53;
             byte[] data = Encoding.UTF8.GetBytes(password);
+
             for (int i = 0; i < data.Length; i++)
             {
                 data[i] = (byte)(data[i] ^ xorConstant);
             }
+
             string output = Convert.ToBase64String(data);
+
             return output;
         }
 
@@ -67,11 +73,14 @@ namespace Auth
         {
             byte xorConstant = 0x53;
             byte[] data = Convert.FromBase64String(password);
+
             for (int i = 0; i < data.Length; i++)
             {
                 data[i] = (byte)(data[i] ^ xorConstant);
             }
+
             string plain = Encoding.UTF8.GetString(data);
+
             return plain;
         }
         private void signIn()
